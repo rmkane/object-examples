@@ -7,7 +7,7 @@ class Employee:
         self.salary = salary
 
     def __repr__(self):
-        return "Name: %s, Salary: $%.2f" % (self.name, self.salary)
+        return f"Name: {self.name}, Salary: ${self.salary:.2f}"
 
     def display_employee(self):
         print(self)
