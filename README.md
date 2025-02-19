@@ -2,15 +2,22 @@
 
 An Employee class written in the following languages.
 
-* Actionscript
-* C++
-* C#
-* Java
-* JavaScript
-* Objective C
-* Pascal
-* PHP
-* Perl
-* Python
-* Ruby
-* Smalltalk
+- [ ] Actionscript
+- [x] C
+- [x] C++
+- [ ] C#
+- [ ] Java
+- [ ] JavaScript
+- [ ] Objective C
+- [ ] Pascal
+- [ ] PHP
+- [ ] Perl
+- [x] Python
+- [ ] Ruby
+- [ ] Smalltalk
+
+## Todo
+
+- [ ] Elixir
+- [ ] Go
+- [ ] Rust

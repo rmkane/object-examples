@@ -1,0 +1,5 @@
+# Python
+
+```shell
+python3 .
+```

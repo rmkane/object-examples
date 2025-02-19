@@ -1,5 +1,3 @@
-package example;
-
 interface Employee {
 	public String getName();
 
