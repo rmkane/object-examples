@@ -6,7 +6,7 @@ An Employee class written in the following languages.
 - [x] C
 - [x] C++
 - [ ] C#
-- [ ] Java
+- [x] Java
 - [ ] JavaScript
 - [ ] Objective C
 - [ ] Pascal
@@ -21,3 +21,4 @@ An Employee class written in the following languages.
 - [ ] Elixir
 - [ ] Go
 - [ ] Rust
+- [ ] Zig
