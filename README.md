@@ -2,19 +2,26 @@
 
 An Employee class written in the following languages.
 
-- [ ] Actionscript
+- [ ] ActionScript
 - [x] C
 - [x] C++
 - [ ] C#
+- [ ] Dart
+- [ ] Groovy
 - [x] Java
 - [ ] JavaScript
-- [ ] Objective C
+  - [ ] CJS
+  - [ ] Ext.JS
+  - [x] ESM
+- [ ] Objective-C
 - [ ] Pascal
-- [ ] PHP
 - [ ] Perl
+- [ ] PHP
 - [x] Python
 - [ ] Ruby
 - [ ] Smalltalk
+- [ ] Swift
+- [ ] TypeScript
 
 ## Todo
 
