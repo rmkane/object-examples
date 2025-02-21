@@ -23,9 +23,9 @@ An Employee class written in the following languages.
 - [ ] Swift
 - [ ] TypeScript
 
-## Todo
+## Others
 
 - [ ] Elixir
-- [ ] Go
+- [x] Go
 - [ ] Rust
 - [ ] Zig
