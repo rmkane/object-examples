@@ -1,5 +1,7 @@
 package employee;
 
+import utils.FormatUtils;
+
 public class EmployeeImpl implements Employee {
     private String name;
     private float salary;
@@ -29,7 +31,8 @@ public class EmployeeImpl implements Employee {
 
     @Override
     public String toString() {
-        return String.format("Name: %s, Salary: $%.2f", getName(), getSalary());
+        String formattedSalary = FormatUtils.formatCurrency(salary);
+        return String.format("Name: %s, Salary: %s", getName(), formattedSalary);
     }
 
     @Override
