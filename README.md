@@ -21,7 +21,7 @@ An Employee class written in the following languages.
 - [ ] Ruby
 - [ ] Smalltalk
 - [ ] Swift
-- [ ] TypeScript
+- [x] TypeScript
 
 ## Others
 

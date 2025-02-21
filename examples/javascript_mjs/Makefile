@@ -1,12 +1,17 @@
 # Variables
 NODE := node
+NPM := npm
 BUN := bun
 DENO := deno
 SRC_DIR := src
-MAIN_FILE := main.mjs
+MAIN_FILE := index.mjs
 
 # Default target
-all: run-node
+all: run
+
+# Run vis npm script
+run:
+	$(NPM) run start
 
 # Run with Node.js
 run-node:
@@ -14,7 +19,7 @@ run-node:
 
 # Run with Bun
 run-bun:
-	$(BUN) $(SRC_DIR)/$(MAIN_FILE)
+	$(BUN) run $(SRC_DIR)/$(MAIN_FILE)
 
 # Run with Deno
 run-deno:
@@ -24,4 +29,4 @@ run-deno:
 clean:
 	# Add any clean-up commands here if necessary
 
-.PHONY: all run-node run-bun run-deno clean
+.PHONY: all run run-node run-bun run-deno clean
