@@ -27,5 +27,7 @@ An Employee class written in the following languages.
 
 - [ ] Elixir
 - [x] Go
-- [ ] Rust
+- [ ] Lisp
+- [ ] Lua
+- [x] Rust
 - [ ] Zig
