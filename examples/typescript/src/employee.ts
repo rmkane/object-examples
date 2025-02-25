@@ -9,7 +9,7 @@ interface Employee extends EmployeeProps {
   displayEmployee(): void;
 }
 
-class EmployeeImpl {
+class EmployeeImpl implements Employee {
   name: string;
   salary: number;
 

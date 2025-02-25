@@ -21,12 +21,13 @@ An Employee class written in the following languages.
 - [ ] Ruby
 - [ ] Smalltalk
 - [ ] Swift
-- [x] TypeScript
+- [x] TypeScript (updated)
 
 ## Others
 
 - [ ] Elixir
 - [x] Go
+- [ ] Kotlin
 - [ ] Lisp
 - [x] Lua
 - [x] Rust
