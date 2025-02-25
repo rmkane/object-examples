@@ -1,16 +1,20 @@
 import { formatCurrency } from "./utils.ts";
 
-interface IEmployee {
-  name: string;
-  salary: number;
+type EmployeeProps = {
+  name?: string;
+  salary?: number;
+};
+
+interface Employee extends EmployeeProps {
+  displayEmployee(): void;
 }
 
-class Employee {
-  private name: string;
-  private salary: number;
+class EmployeeImpl {
+  name: string;
+  salary: number;
 
   constructor();
-  constructor(obj: IEmployee);
+  constructor(obj: EmployeeProps);
   constructor(obj?: any) {
     this.name = obj?.name ?? "Unknown";
     this.salary = obj?.salary ?? 0.0;
@@ -26,6 +30,6 @@ class Employee {
   }
 }
 
-export type { IEmployee };
+export type { Employee };
 
-export { Employee };
+export { EmployeeImpl };

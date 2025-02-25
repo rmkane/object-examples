@@ -4,6 +4,7 @@ import sys
 from employee import Employee
 
 
+# Main entry point for the script
 def main():
     emp1 = Employee("Bob", 75000)
     emp2 = Employee("Joe", 50000)

@@ -28,6 +28,6 @@ An Employee class written in the following languages.
 - [ ] Elixir
 - [x] Go
 - [ ] Lisp
-- [ ] Lua
+- [x] Lua
 - [x] Rust
 - [ ] Zig

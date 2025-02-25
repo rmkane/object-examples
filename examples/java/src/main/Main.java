@@ -1,6 +1,7 @@
 import employee.Employee;
 import employee.EmployeeImpl;
 
+// Main entry point for the Java application
 public class Main {
     public static void main(String[] args) {
         Employee emp1 = new EmployeeImpl("Bob", 75_000);
