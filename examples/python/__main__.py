@@ -6,10 +6,15 @@ from employee import Employee
 
 # Main entry point for the script
 def main():
-    emp1 = Employee("Bob", 75000)
-    emp2 = Employee("Joe", 50000)
-    emp1.display_employee()
-    emp2.display_employee()
+    employees = [
+        Employee("Alice", 60_000),
+        Employee("Bob", 75_000),
+        Employee("Charlie", 50_000),
+    ]
+
+    for employee in employees:
+        employee.display_employee()
+
     sys.exit(0)
 
 
