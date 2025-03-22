@@ -5,16 +5,16 @@ import { Employee, EmployeeImpl } from "./employee.ts";
  */
 function main() {
   let employees: Employee[] = [
-    new EmployeeImpl({ name: "Bob", salary: 75_000.0 }),
-    new EmployeeImpl({ name: "Joe", salary: 50_000.0 }),
+    EmployeeImpl.NewEmployee({ givenName: "Bob", surname: "Smith", salary: 75_000.0 }),
+    EmployeeImpl.NewEmployee({ givenName: "Alice", surname: "Jones", salary: 50_000.0 }),
   ];
 
   displayEmployees(employees);
 }
 
 function displayEmployees(employees: Employee[]) {
-  employees.forEach((employee) => {
-    console.log(employee.toString());
+  employees.forEach(employee => {
+    console.log(String(employee));
   });
 }
 
