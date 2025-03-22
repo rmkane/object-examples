@@ -1,46 +1,74 @@
 import { formatCurrency } from "./utils.ts";
 
-type EmployeeProps = {
+const EmployeeRole = {
+  Manager: "Manager",
+  Developer: "Developer",
+} as const;
+
+type TEmployeeRole = keyof typeof EmployeeRole;
+
+type TEmployeeProps = {
   givenName: string;
   surname: string;
   salary: number;
+  role: TEmployeeRole;
 };
 
-interface Employee extends EmployeeProps {
+interface TEmployee extends TEmployeeProps {
   getFullName(): string;
 }
 
-class EmployeeImpl implements Employee {
-  givenName: string;
-  surname: string;
-  salary: number;
+class Employee implements TEmployee {
+  #givenName: string;
+  #surname: string;
+  #salary: number;
+  #role: TEmployeeRole;
+
+  get givenName(): string {
+    return this.#givenName;
+  }
+
+  get surname(): string {
+    return this.#surname;
+  }
+
+  get salary(): number {
+    return this.#salary;
+  }
+
+  get role(): TEmployeeRole {
+    return this.#role;
+  }
 
   private constructor();
-  private constructor(obj: Partial<EmployeeProps>);
+  private constructor(obj: Partial<TEmployee>);
   private constructor(obj?: any) {
-    this.givenName = obj?.givenName ?? "Unknown";
-    this.surname = obj?.surname ?? "Unknown";
-    this.salary = obj?.salary ?? 0.0;
+    this.#givenName = obj?.givenName ?? "Unknown";
+    this.#surname = obj?.surname ?? "Unknown";
+    this.#salary = obj?.salary ?? 0.0;
+    this.#role = obj?.role ?? EmployeeRole.Developer;
   }
 
   public toString = (): string => {
-    const formattedSalary = formatCurrency(this.salary);
-    return `Name ${this.getFullName()}, Salary: ${formattedSalary}`;
+    const formattedSalary = formatCurrency(this.#salary);
+    return `${this.#role}: ${this.getFullName()} - ${formattedSalary}`;
   };
 
   public getFullName() {
-    return `${this.givenName} ${this.surname}`;
+    return `${this.#givenName} ${this.#surname}`;
   }
 
   static Builder = class {
     private givenName: string;
     private surname: string;
     private salary: number;
-    
+    private role: TEmployeeRole;
+  
     constructor() {
       this.givenName = "Unknown";
       this.surname = "Unknown";
       this.salary = 0.0;
+      this.role = EmployeeRole.Developer;
     }
 
     public withGivenName(givenName: string) {
@@ -58,20 +86,30 @@ class EmployeeImpl implements Employee {
       return this;
     }
 
+    public withRole(role: TEmployeeRole) {
+      this.role = role;
+      return this;
+    }
+
     public build() {
-      return new EmployeeImpl({
+      return new Employee({
         givenName: this.givenName,
         surname: this.surname,
         salary: this.salary,
+        role: this.role,
       });
     }
   }
 
-  static NewEmployee = (props: Partial<EmployeeProps>) => {
-    return new EmployeeImpl(props);
+  static builder() {
+    return new Employee.Builder();
+  }
+  
+  static NewEmployee = (props: Partial<TEmployeeProps>) => {
+    return new Employee(props);
   };
 }
 
-export type { Employee };
+export type { TEmployee, TEmployeeProps, TEmployeeRole };
 
-export { EmployeeImpl };
+export { Employee, EmployeeRole };
