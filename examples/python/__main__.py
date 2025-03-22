@@ -1,21 +1,27 @@
 #!/usr/bin/env python3
 
-import sys
-from employee import Employee
+from employee import Employee, EmployeeRole
+from typing import List
 
 
-# Main entry point for the script
-def main():
-    employees = [
-        Employee("Alice", 60_000),
-        Employee("Bob", 75_000),
-        Employee("Charlie", 50_000),
-    ]
+def main() -> None:
+    """Main function to create and display employee information."""
+    bob = Employee(
+        given_name="Bob",
+        surname="Smith",
+        salary=85_000.0,
+        role=EmployeeRole.MANAGER,
+    )
 
+    alice = Employee.create(given_name="Alice", surname="Jones", salary=70_000.0)
+
+    display_employees([bob, alice])
+
+
+def display_employees(employees: list[Employee]) -> None:
+    """Display information for a collection of employees."""
     for employee in employees:
-        employee.display_employee()
-
-    sys.exit(0)
+        print(str(employee))
 
 
 if __name__ == "__main__":
