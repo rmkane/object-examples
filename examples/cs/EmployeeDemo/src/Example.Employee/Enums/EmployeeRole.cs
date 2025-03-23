@@ -1,8 +1,8 @@
-namespace Example.Employee.Enums
+namespace EmployeeDemo.Example.Employee.Enums
 {
     public enum EmployeeRole
     {
         Manager,
         Developer
     }
-} 
+}

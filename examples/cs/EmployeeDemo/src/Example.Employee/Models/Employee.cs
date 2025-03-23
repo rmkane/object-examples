@@ -1,8 +1,7 @@
-using System;
-using Example.Employee.Enums;
-using Example.Employee.Interfaces;
+using EmployeeDemo.Example.Employee.Enums;
+using EmployeeDemo.Example.Employee.Interfaces;
 
-namespace Example.Employee.Models
+namespace EmployeeDemo.Example.Employee.Models
 {
     public class Employee : IEmployee
     {
@@ -33,11 +32,8 @@ namespace Example.Employee.Models
         public override string ToString() => $"{Role}: {GetFullName()} - ${Salary:F2}";
 
         // Static factory methods with more descriptive names
-        public static Employee CreateManager(string givenName, string surname, double salary)
-            => new Employee(new EmployeeData(givenName, surname, salary, EmployeeRole.Manager));
-
-        public static Employee CreateDeveloper(string givenName, string surname, double salary)
-            => new Employee(new EmployeeData(givenName, surname, salary, EmployeeRole.Developer));
+        public static Employee Create(string givenName, string surname, double salary, EmployeeRole role)
+            => new(new EmployeeData(givenName, surname, salary, role));
 
         public static IEmployeeBuilder CreateBuilder() => new EmployeeBuilder();
 
@@ -84,4 +80,4 @@ namespace Example.Employee.Models
             }
         }
     }
-} 
+}

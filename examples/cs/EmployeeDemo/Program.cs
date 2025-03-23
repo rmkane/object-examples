@@ -1,30 +1,24 @@
-﻿using System;
-using Example.Employee.Enums;
-using Example.Employee.Models;
-using Example.Employee.Interfaces;
-using EmployeeModel = Example.Employee.Models.Employee;
+﻿using EmployeeDemo.Example.Employee.Enums;
+using EmployeeModel = EmployeeDemo.Example.Employee.Models.Employee;
 
-namespace Example
+// Top-level statements - no explicit Program class needed
+var bob = EmployeeModel.CreateBuilder()
+    .GivenName("Bob")
+    .Surname("Smith")
+    .Salary(75000.0)
+    .Role(EmployeeRole.Manager)
+    .Build();
+
+var alice = EmployeeModel.Create(
+    "Alice",
+    "Jones",
+    50000.0,
+    EmployeeRole.Developer
+);
+
+var employees = new[] { bob, alice };
+
+foreach (var employee in employees)
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            var bob = EmployeeModel.CreateManager("Bob", "Smith", 75000.0);
-
-            var alice = EmployeeModel.CreateBuilder()
-                .GivenName("Alice")
-                .Surname("Jones")
-                .Salary(50000.0)
-                .Role(EmployeeRole.Developer)
-                .Build();
-
-            var employees = new[] { bob, alice };
-
-            foreach (var employee in employees)
-            {
-                Console.WriteLine(employee);
-            }
-        }
-    }
+    Console.WriteLine(employee);
 }

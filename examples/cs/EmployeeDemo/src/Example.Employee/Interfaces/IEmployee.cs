@@ -1,6 +1,6 @@
-using Example.Employee.Enums;
+using EmployeeDemo.Example.Employee.Enums;
 
-namespace Example.Employee.Interfaces
+namespace EmployeeDemo.Example.Employee.Interfaces
 {
     public interface IEmployee
     {
@@ -10,4 +10,4 @@ namespace Example.Employee.Interfaces
         EmployeeRole Role { get; }
         string GetFullName();
     }
-} 
+}
