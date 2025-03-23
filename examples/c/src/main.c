@@ -23,7 +23,7 @@ void display_employees(const Employee** employees, size_t count) {
 /**
  * Main function to create and display employee information.
  */
-void main(void) {
+int main(void) {
     // Create first employee using builder-style pattern
     Employee* bob = employee_create();
     employee_set_given_name(bob, "Bob");
@@ -47,4 +47,6 @@ void main(void) {
     // Clean up
     employee_destroy(bob);
     employee_destroy(alice);
+
+    return EXIT_SUCCESS;
 }
