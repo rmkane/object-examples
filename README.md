@@ -5,7 +5,7 @@ An Employee class written in the following languages.
 - [ ] ActionScript
 - [x] C
 - [x] C++
-- [ ] C#
+- [x] C#
 - [ ] Dart
 - [ ] Groovy
 - [x] Java
