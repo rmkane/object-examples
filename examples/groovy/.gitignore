@@ -1,0 +1,28 @@
+# Groovy
+*.class
+build/
+
+# Gradle (in case it's added later)
+.gradle/
+gradle/
+gradlew
+gradlew.bat
+
+# IDE files
+.idea/
+*.iml
+*.iws
+*.ipr
+.settings/
+.project
+.classpath
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Build directory from our Makefile
+build/ 
