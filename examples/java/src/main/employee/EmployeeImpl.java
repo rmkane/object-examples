@@ -3,16 +3,26 @@ package employee;
 import utils.FormatUtils;
 
 public class EmployeeImpl implements Employee {
-    private String name;
-    private float salary;
+    private final String givenName;
+    private final String surname;
+    private final float salary;
+    private final EmployeeRole role;
 
-    @Override
-    public String getName() {
-        return this.name;
+    private EmployeeImpl(Builder builder) {
+        this.givenName = builder.givenName;
+        this.surname = builder.surname;
+        this.salary = builder.salary;
+        this.role = builder.role;
     }
 
-    protected void setName(String name) {
-        this.name = name;
+    @Override
+    public String getGivenName() {
+        return this.givenName;
+    }
+
+    @Override
+    public String getSurname() {
+        return this.surname;
     }
 
     @Override
@@ -20,23 +30,67 @@ public class EmployeeImpl implements Employee {
         return this.salary;
     }
 
-    protected void setSalary(float salary) {
-        this.salary = salary;
+    @Override
+    public EmployeeRole getRole() {
+        return this.role;
     }
 
-    public EmployeeImpl(String name, float salary) {
-        setName(name);
-        setSalary(salary);
+    @Override
+    public String getFullName() {
+        return String.format("%s %s", this.givenName, this.surname);
     }
 
     @Override
     public String toString() {
-        String formattedSalary = FormatUtils.formatCurrency(salary);
-        return String.format("Name: %s, Salary: %s", getName(), formattedSalary);
+        return String.format("%s: %s - %s", 
+            this.role, 
+            this.getFullName(), 
+            FormatUtils.formatCurrency(this.salary));
     }
 
-    @Override
-    public void displayEmployee() {
-        System.out.println(this);
+    // Static factory methods
+    public static Employee create(String givenName, String surname, float salary, EmployeeRole role) {
+        return new Builder()
+            .givenName(givenName)
+            .surname(surname)
+            .salary(salary)
+            .role(role)
+            .build();
+    }
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    // Builder class
+    public static class Builder {
+        private String givenName = "Unknown";
+        private String surname = "Unknown";
+        private float salary = 0.0f;
+        private EmployeeRole role = EmployeeRole.DEVELOPER;
+
+        public Builder givenName(String givenName) {
+            this.givenName = givenName;
+            return this;
+        }
+
+        public Builder surname(String surname) {
+            this.surname = surname;
+            return this;
+        }
+
+        public Builder salary(float salary) {
+            this.salary = salary;
+            return this;
+        }
+
+        public Builder role(EmployeeRole role) {
+            this.role = role;
+            return this;
+        }
+
+        public Employee build() {
+            return new EmployeeImpl(this);
+        }
     }
 }

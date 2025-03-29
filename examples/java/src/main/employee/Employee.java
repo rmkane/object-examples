@@ -1,9 +1,13 @@
 package employee;
 
 public interface Employee {
-	public String getName();
+	public String getGivenName();
+
+	public String getSurname();
 
 	public float getSalary();
 
-	public void displayEmployee();
+	public EmployeeRole getRole();
+
+	public String getFullName();
 }
